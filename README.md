@@ -2,7 +2,7 @@
 
 ## Apex demo
 
-![apex demo](demos/apex.gif)
+![apex demo](https://github.com/kasyapgaurav/sfSnippets/blob/main/demos/Apex.gif)
 
 ## Release Notes
 
