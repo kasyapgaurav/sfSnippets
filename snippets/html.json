@@ -1,0 +1,128 @@
+{
+    "attribute": {
+        "prefix": "sf-attr",
+        "body": [
+            "<aura:attribute name=\"${1:name}\" type=\"${2:type}\" default=\"$0\" />"
+        ],
+        "description": ""
+    },
+    "attributeList": {
+        "prefix": "sf-attrList",
+        "body": [
+            "<aura:attribute name=\"${1:name}\" type=\"List\" default=\"[",
+            "   {'label': '${2:label}', 'value': '${3:value}'}",
+            "   ]\"/>"
+        ],
+        "description": ""
+    },
+    "doInt": {
+        "prefix": "sf-doInit",
+        "body": [
+            "<aura:handler name=\"init\" value=\"{!this}\" action=\"{!c.${1:controllerDoInit}}\" />"
+        ],
+        "description": ""
+    },
+    "input": {
+        "prefix": "sf-input",
+        "body": [
+            "<lightning:input type=\"${1:type}\" aura:id=\"${2:id}\" label=\"${3:label}\" value=\"$0\" />"
+        ],
+        "description": ""
+    },
+    "combobox": {
+        "prefix": "sf-combobox",
+        "body": [
+            "<lightning:combobox name=\"${1:name}\" label=\"${2:label}\" value=\"${3:value}\" placeholder=\"${4:placeholder}\" options=\"{!v.${5:optionsList}}\" onchange=\"{!c.${6:handleChange}}\"/>"
+        ],
+        "description": ""
+    },
+    "aura-if": {
+        "prefix": "sf-aura-if",
+        "body": [
+            "<aura:if isTrue=\"{!v.${1:attribute}}\">",
+            "   $0",
+            "</aura:if>"
+        ],
+        "description": ""
+    },
+    "aura-if-else": {
+        "prefix": "sf-aura-if-else",
+        "body": [
+            "<aura:if isTrue=\"{!v.${1:attribute}}\">",
+            "   $2",
+            "   <aura:set attribute=\"else\">",
+            "       $0",
+            "   </aura:set>",
+            "</aura:if>"
+        ],
+        "description": ""
+    },
+    "button": {
+        "prefix": "sf-button",
+        "body": [
+            "<lightning:button variant=\"${1:variant}\" label=\"${2:label}\" title=\"${3:title}\" onclick=\"{!c.${4:handleClick}}\"/>"
+        ],
+        "description": ""
+    },
+    "buttonGroup": {
+        "prefix": "sf-button-group",
+        "body": [
+            "<lightning:buttonGroup>",
+            "   <lightning:button label=\"${1:label}\" />",
+            "   <lightning:button label=\"${2:label}\" />",
+            "   <lightning:button label=\"${3:label}\" />",
+            "</lightning:buttonGroup>"
+        ],
+        "description": ""
+    },
+    "datatable": {
+        "prefix": "sf-datatable",
+        "body": [
+            "<!-- attributes for datatable -->",
+            "<aura:attribute name=\"${1:data}\" type=\"Object\" />",
+            "<aura:attribute name=\"${2:columns}\" type=\"List\" />",
+            "",
+            "",
+            "<lightning:datatable",
+            "   keyField=\"id\"",
+            "   data=\"${1:data}\"",
+            "   columns=\"${2:columns}\"",
+            "   hideCheckboxColumn=\"${3:boolean}\"/>"
+        ],
+        "description": ""
+    },
+    "listView": {
+        "prefix": "sf-listview",
+        "body": [
+            "<!-- how to get developer name of listview from object? -->",
+            "<!-- SELECT DeveloperName, SObjectType FROM ListView -->",
+            "<lightning:listView aura:id=\"${1:listViewId}\"",
+            "   objectApiName=\"${2:Object}\"",
+            "   listName=\"${3:developerNameListView}\"",
+            "   rows=\"${4:numberOfRows}\"",
+            "   showSearchBar=\"${5:boolean}\"",
+            "   showActionBar=\"${6:boolean}\"",
+            "   enableInlineEdit=\"${7:boolean}\"",
+            "   showRowLevelActions=\"${8:boolean}\"",
+            "   />"
+        ],
+        "description": ""
+    },
+    "spinner": {
+        "prefix": "sf-spinner",
+        "body": [
+            "<!-- sizes: small, medium, large -->",
+            "<lightning:spinner alternativeText=\"Loading\" size=\"${1:size}\" variant=\"$0\" />"
+        ],
+        "description": ""
+    },
+    "aura-iteration": {
+        "prefix": "sf-aura-iteration",
+        "body": [
+            "<aura:iteration items=\"{!v.${1:items}}\" var=\"${2:item}\">",
+            "   $0",
+            "</aura:iteration>"
+        ],
+        "description": ""
+    }
+}

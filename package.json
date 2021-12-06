@@ -1,0 +1,41 @@
+{
+    "name": "sfsnippets",
+    "displayName": "salesforce_snippets",
+    "description": "This is one stop solution about salesforce snippets.",
+	"icon": "icon.png",
+    "version": "1.2.2",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+	"publisher": "GauravKashyap",
+	"author": {
+		"name": "Gaurav Kashyap"
+	},
+	"keywords": [
+		"Salesforce",
+		"Salesforce Snippets",
+		"Apex",
+		"Apex Snippets",
+		"Aura Snippets",
+		"Javascript"
+	],
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+				"language": "apex",
+				"path": "./snippets/apex.json"
+            },
+            {
+				"language": "html",
+				"path": "./snippets/html.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/javascript.json"
+			}
+        ]
+    }
+}

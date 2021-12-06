@@ -1,0 +1,309 @@
+{
+    "apexMethod": {
+        "prefix": "sf-method",
+        "body": [
+            "public static ${0:Object} myMethod (${1:Object} ${2:var}) {",
+            "	return ",
+            "}"
+        ],
+        "description": "foreach",
+    },
+
+    "foreach": {
+        "prefix": "sf-for",
+        "body": [
+            "for (${1:Object} ${2:var}: ${3:list}){",
+            "	$0",
+            "}"
+        ],
+        "description": "foreach",
+    },
+
+    "foreachWithSelect": {
+        "prefix": "sf-fors",
+        "body": [
+            "for (${1:Object} ${2:var}: [SELECT ${3:fields} FROM $1 WHERE ${4:where}]){",
+            "	$0",
+            "}"
+        ],
+        "description": "foreach with select",
+    },
+
+    "ifElse": {
+        "prefix": "sf-ifelse",
+        "body": [
+            "if (${1:condition}){",
+            "	$0",
+            "} else {",
+            "	",
+            "}"
+        ],
+        "description": "if-else"
+    },
+
+    "debug": {
+        "prefix": "sf-debug",
+        "body": [
+            "System.debug('$1: ' + ${1:var});"
+        ]
+    },
+
+    "var": {
+        "prefix": "sf-var",
+        "body": [
+            "${1:Instance} ${2:var} = new $1();"
+        ]
+    },
+
+    "map": {
+        "prefix": "sf-map",
+        "body": [
+            "Map<Id,${1:Instance}> ${2:var} = new Map<Id,$1>();"
+        ]
+    },
+
+    "list": {
+        "prefix": "sf-list",
+        "body": [
+            "List<${1:Instance}> ${2:var} = new List<$1>();"
+        ]
+    },
+
+    "set": {
+        "prefix": "sf-set",
+        "body": [
+            "Set<${1:Instance}> ${2:var} = new Set<$1>();"
+        ]
+    },
+
+    "constant": {
+        "prefix": "sf-constant",
+        "body": [
+            "private static final String CONST_${1:name} = '${2:text}';"
+        ]
+    },
+
+    "soql-list": {
+        "prefix": "sf-soql-list",
+        "body": [
+            "List<${1:Object}> ${2:var} = [SELECT ${3:fields} FROM $1 WHERE ${4:where}];"
+        ]
+    },
+
+    "soql-map": {
+        "prefix": "sf-soql-map",
+        "body": [
+            "Map<Id, ${1:Object}> ${2:var} = [SELECT ${3:fields} FROM $1 WHERE ${4:where}];"
+        ]
+    },
+
+    "soql": {
+        "prefix": "sf-soql",
+        "body": [
+            "[SELECT ${1:fields} FROM ${2:Object:} WHERE ${3:where}]"
+        ]
+    },
+
+    "http-request": {
+        "prefix": "sf-request",
+        "body": [
+            "Http http = new Http();",
+            "HttpRequest req = new HttpRequest();",
+            "req.setEndpoint('${1:endpoint}');",
+            "req.setMethod('${2:method}');",
+            "req.setHeader('${3:header}');",
+            "HttpResponse res = http.send(req);",
+            "if(res.getStatusCode() == 200){",
+            "	$0",
+            "} else{",
+            "	",
+            "}"
+        ]
+    },
+
+
+    "dml-database": {
+        "prefix": "sf-dml sf-dml-saveResult",
+        "body": [
+            "Database.SaveResult result = Database.${1:DML}(${2:var}, false);",
+            "if (!result.isSuccess()) {",
+            "	for (Database.Error err : result.getErrors()) {",
+            "		msg = err.getMessage();",
+            "	}",
+            "} else {",
+            "	$0",
+            "}"
+        ],
+        "description": "DML's with SaveResul single record"
+    },
+    
+    "dml-list": {
+        "prefix": "sf-dml-list sf-dml-saveResult-list",
+        "body": [
+            "Database.SaveResult[] srList = Database.${1:DML}(${2:var}, false);",
+            "for (Database.SaveResult sr : srList) {",
+            "   if (!result.isSuccess()) {",
+            "	    for (Database.Error err : result.getErrors()) {",
+            "		    msg = err.getMessage();",
+            "	    }",
+            "   } else {",
+            "	    $0",
+            "   }"
+            "}"
+        ],
+        "description": "DML's with SaveResul[]"
+    },
+    
+    "getRecordTypeId": {
+        "prefix": "sf-getRecordTypeId",
+        "body": [
+            "Id idRecType$2 = Schema.SObjectType.${1:Object}.getRecordTypeInfosByDeveloperName().get('${2:Developer_Name}').getRecordTypeId();"
+        ]
+    },
+
+    "deserialize": {
+        "prefix": "sf-deserialize",
+        "body": [
+            "${1:objectType} response = ($1) JSON.deserialize(${2:jsonResponse}, $1.class);"
+        ]
+    },
+
+    "deserializeUntyped": {
+        "prefix": "sf-deserializeUntyped",
+        "body": [
+            "Map<String, Object> ${1:response} = (Map<String, Object>) JSON.deserializeUntyped(${2:jsonResponse});"
+        ]
+    },
+
+    "serialize": {
+        "prefix": "sf-serialize",
+        "body": [
+            "JSON.serialize(${1:var})$0"
+        ]
+    },
+
+    "ifMapContainsKey": {
+        "prefix": "sf-ifcontainsKey sf-ifMapContainsKey",
+        "body": [
+            "if (${1:map}.containsKey()) {",
+            "	$0",
+            "}"
+        ]
+    },
+
+    "wrapperCustomItem": {
+        "prefix": "sf-wrapper-custom-item sf-wrapper-custom-field",
+        "body": [
+            "public ${1:InnerClass} ${2:name} { get; set; }",
+            "",
+            "public class $1 {",
+            "    $0",
+            "}"
+        ]
+    },
+
+    "wrapperItem": {
+        "prefix": "sf-wrapper-item sf-wrapper-field",
+        "body": [
+            "public ${1:Object} ${2:name} { get; set; }"
+        ]
+    },
+
+    "auraInnerClass": {
+        "prefix": "sf-wrapper-aura",
+        "body": [
+            "public class ${1:className}  {",
+            "   @AuraEnabled public ${2:type} ${3:var};",
+            "}"
+        ]
+    },
+
+    "emailMessage":{
+        "prefix": "sf-emailMessage",
+        "body": [
+            "Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();",
+            "message.setTargetObjectId(${1:target}.id);",
+            "message.setOrgWideEmailAddressId([SELECT Id FROM OrgWideEmailAddress WHERE Address = '${2:sender@email.com}' LIMIT 1].Id);",
+            "message.setTemplateID([SELECT Id FROM EmailTemplate WHERE DeveloperName ='${3:template_developer_name' LIMIT 1].Id);",
+            "message.setWhatId(${4:what.id});",
+            "message.setSaveAsActivity(${5:trueORfalse});",
+            "Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {message};",
+            "Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);",
+            "if (results[0].success) {",
+                "System.debug('The email was sent successfully.');",
+            "} else{",
+                "System.debug('The email failed to send: ' + results[0].errors[0].message);",
+            "}"
+        ]
+    },
+
+    "emailMessage-withEmailList":{
+        "prefix": "sf-emailMessage-emailList",
+        "body": [
+            "Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();",
+            "message.toAddresses = new List<String> {'${1:recipient@email.com}'};",
+            "message.setOrgWideEmailAddressId([SELECT Id FROM OrgWideEmailAddress WHERE Address = '${2:sender@email.com}' LIMIT 1].Id);",
+            "message.setTemplateID([SELECT Id FROM EmailTemplate WHERE DeveloperName ='${3:template_developer_name' LIMIT 1].Id);",
+            "message.setWhatId(${4:what.id});",
+            "message.setSaveAsActivity(${5:trueORfalse});",
+            "Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {message};",
+            "Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);",
+            "if (results[0].success) {",
+                "System.debug('The email was sent successfully.');",
+            "} else{",
+                "System.debug('The email failed to send: ' + results[0].errors[0].message);",
+            "}"
+        ]
+    },
+
+    "emailSimplest":{
+        "prefix": "sf-emailSimplest",
+        "body": [
+            "Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();",
+            "message.toAddresses = new String[] { '${1:recipient@email.com}'};",
+            "message.subject = '${2:subject}';",
+            "message.plainTextBody = '${2:body}';",
+            "Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage> {message};",
+            "Messaging.SendEmailResult[] results = Messaging.sendEmail(messages);",
+            "if (results[0].success) {",
+                "System.debug('The email was sent successfully.');",
+            "} else{",
+                "System.debug('The email failed to send: ' + results[0].errors[0].message);",
+            "}"
+        ]
+    },
+
+    "sosl": {
+        "prefix": "sf-sosl",
+        "body": [
+            "List<List<SObject>> searchList = [FIND '${1:text}' IN ALL FIELDS RETURNING ${2:Object}(${3:fields})];"
+        ],
+        "description": "SOSL query. Ex.: List<List<SObject>> searchList = [FIND 'SFDC' IN ALL FIELDS RETURNING Account(Name), Contact(FirstName,LastName)];"
+    },
+
+    "try-catch": {
+        "prefix": "sf-try-catch sf-trycatch",
+        "body": [
+            "try {",
+            "   ${0}",
+            "} catch (Exception  e) {",
+            "   System.debug('e.getMessage(): ' + e.getMessage());",
+            "   System.debug('e.getStackTraceString(): ' + e.getStackTraceString());",
+            "}"
+        ] 
+    },
+
+    "isBlank": {
+        "prefix": "sf-isBlank",
+        "body": [
+            "String.isBlank(${1:var})"
+        ]
+    },
+
+    "isNotBlank": {
+        "prefix": "sf-isNotBlank",
+        "body": [
+            "String.isNotBlank(${1:var})"
+        ]
+    }
+}
