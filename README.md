@@ -7,7 +7,7 @@
 ## Release Notes
 
 This is one stop solution about salesforce snippets.
-```
+
 <h>APEX</h>
    <br/> sf-method
    <br/> sf-for
@@ -63,7 +63,7 @@ This is one stop solution about salesforce snippets.
    <br/> sf-date-dd/mm/yyy
    <br/> sf-refresh-view
 
-```
+
 ### 1.2.1
 
 LWC snippets will come soon
