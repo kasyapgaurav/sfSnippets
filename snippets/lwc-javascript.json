@@ -1,0 +1,569 @@
+{
+    "console Log": {
+        "prefix": "sf-con-log",
+        "body": ["console.log('OUTPUT : ',$1);"],
+        "description": "console Log"
+    },
+    "console table": {
+        "prefix": "sf-con-table",
+        "body": ["console.table($1);"],
+        "description": "console table"
+    },
+    "console_error": {
+        "prefix": "sf-con-error",
+        "body": ["console.error('OUTPUT: ',$1);"],
+        "description": "console_error"
+    },
+    "console_info": {
+        "prefix": "sf-con-info",
+        "body": ["console.info('OUTPUT: ',$1);"],
+        "description": "console_info"
+    },
+    "console_warning": {
+        "prefix": "sf-con-warn",
+        "body": ["console.warn('OUTPUT: ',$1);"],
+        "description": "console_warning"
+    },
+    "JSON-1": {
+        "prefix": "sf-json-stringify-and-parse",
+        "body": ["JSON.parse(JSON.stringify($1))"],
+        "description": "JSON.parse(JSON.stringify(data))"
+    },
+    "JSON-2": {
+        "prefix": "sf-json-parse",
+        "body": ["JSON.parse($1);"],
+        "description": "JSON.parse(data)"
+    },
+    "JSON-3": {
+        "prefix": "sf-json-stringify",
+        "body": ["JSON.stringify($1);"],
+        "description": "JSON.stringify(data)"
+    },
+    "LWC uiRecordApi": {
+        "prefix": "sf-import-uiRecordApi",
+        "body": [
+            "import { getRecord, createRecord, updateRecord, deleteRecord, getRecordUi, getFieldValue, getFieldDisplayValue, getRecordCreateDefaults, createRecordInputFilteredByEditedFields, generateRecordInputForCreate, generateRecordInputForUpdate } from 'lightning/uiRecordApi';",
+            "/* https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_lightning_ui_api_record */"
+        ],
+        "description": "LWC uiRecordApi"
+    },
+    "LWC uiObjectInfoApi": {
+        "prefix": "sf-import-ObjectInfoApi",
+        "body": [
+            "import { getObjectInfo, getPicklistValues, getPicklistValuesByRecordType } from 'lightning/uiObjectInfoApi';",
+            "/* https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_lightning_ui_api_object_info */"
+        ],
+        "description": "LWC uiObjectInfoApi"
+    },
+    "LWC navigation": {
+        "prefix": "sf-import-Navigation",
+        "body": ["import { ${1:NavigationMixin} } from 'lightning/navigation';"],
+        "description": "LWC navigation"
+    },
+    "LWC APEX": {
+        "prefix": "sf-import-ApexClass",
+        "body": [
+            "import getApexData from '@salesforce/apex/${1:apexControllerName}.${2:methodName}';"
+        ],
+        "description": "LWC APEX"
+    },
+    "LWC ListView": {
+        "prefix": "sf-import-Listview",
+        "body": ["import { ${1:getListUi} } from 'lightning/uiListApi';"],
+        "description": "LWC ListView"
+    },
+    "LWC pub sub library": {
+        "prefix": "sf-import-Pubsub-Library",
+        "body": ["import ${1:pubsub} from 'c/${1:pubsub}';"],
+        "description": "LWC pub sub library"
+    },
+    "LWC toastMessages": {
+        "prefix": "sf-import-ToastMessage",
+        "body": [
+            "import { ShowToastEvent } from 'lightning/platformShowToastEvent';"
+        ],
+        "description": "LWC toastMessages"
+    },
+    "salesforce-label": {
+        "prefix": "sf-import-CustomLabel",
+        "body": [
+            "import ${1:labelName} from '@salesforce/label/${2:labelReference}';",
+            "// Example :- import greeting from '@salesforce/label/c.greeting';"
+        ],
+        "description": "@salesforce/label"
+    },
+    "salesforce-resourceUrl": {
+        "prefix": "sf-import-ResourceUrl",
+        "body": [
+            "import ${1:resourceName} from '@salesforce/resourceUrl/$2resourceReference';",
+            "// Example :- import TRAILHEAD_LOGO from '@salesforce/resourceUrl/trailhead_logo';"
+        ],
+        "description": "@salesforce/resourceUrl"
+    },
+    "salesforce-schema": {
+        "prefix": "sf-import-SalesforceSchema",
+        "body": [
+            "import ${1:objectName} from '@salesforce/schema/$2objectApiName';",
+            "import $3FIELD_NAME from '@salesforce/schema/$4object.fieldApiName';"
+        ],
+        "description": "@salesforce/schema"
+    },
+
+    "salesforce-formFactor": {
+        "prefix": "sf-import-client-formFactor",
+        "body": ["import FORM_FACTOR from '@salesforce/client/formFactor';"],
+        "description": "@salesforce/client/formFactor"
+    },
+
+    "salesforce-community": {
+        "prefix": "sf-import-Community",
+        "body": [
+            "import communityId from '@salesforce/community/Id';",
+            "import communityPath from '@salesforce/community/basePath'"
+        ],
+        "description": "@salesforce/community"
+    },
+
+    "salesforce-messageChannel": {
+        "prefix": "sf-import-messageChannel",
+        "body": [
+            "import { APPLICATION_SCOPE,createMessageContext, MessageContext, publish, releaseMessageContext, subscribe, unsubscribe} from 'lightning/messageService';",
+            "import ${1:channelName} from '@salesforce/messageChannel/${2:channelReference}';",
+            "/* https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_salesforce_modules */"
+        ],
+        "description": "@salesforce/messageChannel"
+    },
+
+    "salesforce-userPermission": {
+        "prefix": "sf-import-userPermission",
+        "body": [
+            "import hasViewSetup from '@salesforce/userPermission/ViewSetup';",
+            "/* https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.create_get_permissions */"
+        ],
+        "description": "@salesforce/userPermission"
+    },
+
+    "salesforce-customPermission": {
+        "prefix": "sf-import-customPermission",
+        "body": [
+            "import ${1:hasPermission} from '@salesforce/customPermission/${2:PermissionName}';",
+            "/* https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.reference_salesforce_modules */"
+        ],
+        "description": "@salesforce/customPermission"
+    },
+
+    "salesforce-i18n": {
+        "prefix": "sf-import-i18n",
+        "body": [
+            "import ${1:internationalizationPropertyName} from '@salesforce/i18n/${2:internationalizationProperty}';",
+            "/* POSSIBLE_VALUES => lang, dir, locale, currency, firstDayOfWeek, timeZone */",
+            "/*MORE: https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.create_i18n*/"
+        ],
+        "description": "@salesforce/i18n"
+    },
+
+    "salesforce-quick-action": {
+        "prefix": "sf-import-quick-action",
+        "body": [
+            "import { CloseActionScreenEvent } from 'lightning/actions';"
+        ],
+        "description": "lightning/actions"
+    },
+
+    "salesforce-user": {
+        "prefix": "sf-import-User",
+        "body": ["import ${1:userId} from '@salesforce/user/Id';"],
+        "description": "@salesforce/user"
+    },
+    "LWC WireMethod (non parametric)": {
+        "prefix": "sf-wire-without-param",
+        "body": [
+            "@wire(${1:apexMethodName})",
+            "wiredData({ error, data }) {",
+            "  if (data) {",
+            "    console.log('Data', data);",
+            "  } else if (error) {",
+            "    console.error('Error:', error);",
+            "  }",
+            "}"
+        ],
+        "description": "LWC WireMethod (non parametric)"
+    },
+    "LWC WireMethod (Parametric)": {
+        "prefix": "sf-wire-with-param",
+        "body": [
+            "@wire(${1:apexMethodName}, { ${2:paramName}: '$paramName' })",
+            "wiredData({ error, data }) {",
+            "  if (data) {",
+            "    console.log('Data', data);",
+            "  } else if (error) {",
+            "     console.error('Error:', error);",
+            "  }",
+            "}"
+        ],
+        "description": "LWC WireMethod (Parametric)"
+    },
+    "LWC (apex Imperative Method)": {
+        "prefix": "sf-apex-without-param",
+        "body": [
+            "${1:apexMethodName}()",
+            "  .then(result => {",
+            "    console.log('Result', result);",
+            "  })",
+            "  .catch(error => {",
+            "    console.error('Error:', error);",
+            "});"
+        ],
+        "description": "LWC (apex Imperative Method)"
+    },
+    "LWC (apex Imperative param Method)": {
+        "prefix": "sf-apex-with-param",
+        "body": [
+            "${1:apexMethodName}({ ${2:paramName}: ${3:paramValue} })",
+            "  .then(result => {",
+            "    console.log('Result', result);",
+            "  })",
+            "  .catch(error => {",
+            "    console.error('Error:', error);",
+            "});"
+        ],
+        "description": "LWC (apex Imperative Method)"
+    },
+    "LWC @api getter and setter": {
+        "prefix": "sf-api-getter-setter",
+        "body": [
+            "@api",
+            "get ${1:itemName}() {",
+            "\treturn this.${1:itemName};",
+            "}",
+            "set ${1:itemName}(value) {",
+            "\t${3:this.result} = value;",
+            "}"
+        ],
+        "description": "@api getter and setter"
+    },
+    "api function": {
+        "prefix": "sf-api-function",
+        "body": ["@api ${1:functionName}(${2:params}) {", "\t//code$3", "}"],
+        "description": "@api function"
+    },
+    "api flexipageRegionWidth ": {
+        "prefix": "sf-api-variable",
+        "body": ["@api ${1:variableName};"],
+        "description": "@api variable"
+    },
+    "api variable": {
+        "prefix": "sf-api-variable",
+        "body": ["@api flexipageRegionWidth;"],
+        "description": "@api flexipageRegionWidth "
+    },
+
+    "array forEach full": {
+        "prefix": "sf-arr-forEach-with-index",
+        "body": [
+            "${1:array}.forEach(function (currentItem, index){",
+            "\t//TODO : currentItem",
+            "});"
+        ],
+        "description": "Array forEach"
+    },
+    "array forEach": {
+        "prefix": "sf-arr-forEach",
+        "body": [
+            "${1:array}.forEach(currentItem => {",
+            "\t//TODO : currentItem",
+            "});"
+        ],
+        "description": "Array forEach"
+    },
+    "array Loop": {
+        "prefix": "sf-arr-forLoop",
+        "body": ["for (let i = 0; i < ${1:array}.length; i++) {", "\t//code", "}"],
+        "description": "Array forloop"
+    },
+    "array filter": {
+        "prefix": "sf-arr-filter",
+        "body": [
+            "let ${1:newArray} = ${2:array}.filter(item => {",
+            "\treturn condition;",
+            "});"
+        ],
+        "description": "Array filter"
+    },
+    "array map": {
+        "prefix": "sf-arr-map",
+        "body": [
+            "let ${1:mappedArray} =  ${2:array}.map(item => {",
+            "\treturn condition;",
+            "});"
+        ],
+        "description": "Array map"
+    },
+    "array reduce": {
+        "prefix": "sf-arr-reduce",
+        "body": [
+            "let ${1:reducedArray} = ${2:array}.reduce(item => {",
+            "return condition;",
+            "});"
+        ],
+        "description": "Array reduce"
+    },
+    "array forIn": {
+        "prefix": "sf-arr-forIn",
+        "body": [
+            "for (let ${1:key} in ${2:source}) {",
+            "\tif (${2:source}.hasOwnProperty(${1:key})) {",
+            "\t\t${0}",
+            "\t}",
+            "}"
+        ],
+        "description": "Array for in"
+    },
+    "array forOf": {
+        "prefix": "sf-arr-forOf",
+        "body": ["for (const ${1:key} of ${2:source}) {", "\t${0}", "}"],
+        "description": "Array for of"
+    },
+    "array find": {
+        "prefix": "sf-arr-find",
+        "body": ["${1:iterable}.find((${2:item}) => {", "\t${0}", "})"],
+        "description": "Array find"
+    },
+    "array every": {
+        "prefix": "sf-arr-every",
+        "body": ["${1:iterable}.every((${2:item}) => {", "\t${0}", "})"],
+        "description": "Array every"
+    },
+    "array some": {
+        "prefix": "sf-arr-some",
+        "body": ["${1:iterable}.some((${2:item}) => {", "\t${0}", "})"],
+        "description": "Array"
+    },
+    "array concat": {
+        "prefix": "sf-arr-concat",
+        "body": [
+            "const array3 = ${1:array1}.concat(${2:array2});"
+        ],
+        "description": "array1.concat(array2)"
+    },
+    "array includes": {
+        "prefix": "sf-arr-includes",
+        "body": [
+            "${1:arrayName}.includes('${2:property}');"
+        ],
+        "description": "array1.concat(array2)"
+    },
+    "array join": {
+        "prefix": "sf-arr-join",
+        "body": [
+            "${1:arrayName}.join('${2:,}');"
+        ],
+        "description": "array1.join(',')"
+    },
+    "array slice": {
+        "prefix": "sf-arr-slice",
+        "body": [
+            "${1:arrayName}.slice(${2:index}, 1);"
+        ],
+        "description": "array1.slice(index, 1)"
+    },
+
+    "object Assign": {
+        "prefix": "sf-object-assign",
+        "body": [
+            "const returnedCopy = Object.assign({}, ${1:sourceObjectName});"
+        ],
+        "description": "Object.assign({}, ObjectName)"
+    },
+    "object hasOwnProperty": {
+        "prefix": "sf-object-hasOwnProperty",
+        "body": [
+            "${1:objectName}.hasOwnProperty('${2:Key}')"
+        ],
+        "description": "objectName.hasOwnProperty('Key')"
+    },
+    "object keys": {
+        "prefix": "sf-object-keys",
+        "body": [
+            "const arrName = Object.keys(${1:objectName})"
+        ],
+        "description": "Object.keys(objName)"
+    },
+    "object values": {
+        "prefix": "sf-object-values",
+        "body": [
+            "const arrName = Object.values(${1:objectName})"
+        ],
+        "description": "Object.values(objName)"
+    },
+    "object isEmpty": {
+        "prefix": "sf-object-isEmpty",
+        "body": [
+            "const isEmpty = val => val == null || !(Object.keys(val) || val).length;",
+            "console.log(isEmpty([])) // true",
+            "console.log(isEmpty({})) // true"
+        ],
+        "description": "Check Object | Array is empty"
+    },
+
+    "url encode": {
+        "prefix": "sf-url-encode",
+        "body": [
+            "const url = encodeURIComponent('${1:www.test.com}')"
+        ],
+        "description": "encodeURIComponent(url)"
+    },
+
+    "url decode": {
+        "prefix": "sf-url-decode",
+        "body": [
+            "const url = decodeURIComponent('${1:www.test.com}')"
+        ],
+        "description": "decodeURIComponent(url)"
+    },
+
+    "MessageContext": {
+        "prefix": "sf-wire-MessageContext",
+        "body": [
+            "@wire(MessageContext)",
+            "messageContext"
+        ],
+        "description": "Lightning Message Service"
+    },
+
+    "MessageContext publish": {
+        "prefix": "sf-msgChl-Publish",
+        "body": [
+            "const payload = { messageChannelFieldName: 'values' };",
+            "publish(this.messageContext, ${1:MESSAGE_CHANNEL_NAME}, payload);"
+        ],
+        "description": "Lightning Message Service"
+    },
+
+    "MessageContext subscribe": {
+        "prefix": "sf-msgChl-Subscribe",
+        "body": [
+            "this.subscription = subscribe(this.messageContext, ${1:MESSAGE_CHANNEL_NAME},",
+            "\t(result) => {",
+            "\t\tconsole.log(result);",
+            "\t}/* ,{ scope: APPLICATION_SCOPE }*/",
+            ");"
+        ],
+        "description": "Lightning Message Service"
+    },
+
+    "MessageContext unsubscribe": {
+        "prefix": "sf-msgChl-Unsubscribe",
+        "body": [
+            "unsubscribe(this.subscription);",
+            " this.subscription = null;"
+        ],
+        "description": "Lightning Message Service"
+    },
+
+    "tryCatchFinally": {
+        "prefix": "sf-try-catch",
+        "body": [
+            "try {",
+            "\t${0}",
+            "} catch (${1:error}) {",
+            "\tconsole.error(error)",
+            "} finally {\n",
+            "}"
+        ],
+        "description": "try catch finally"
+    },
+    "querySelector-1": {
+        "prefix": "sf-query-Selector",
+        "body": ["this.template.querySelector('${1:document}');"],
+        "description": "querySelector"
+    },
+    "querySelectorAll": {
+        "prefix": "sf-query-SelectorAll",
+        "body": ["this.template.querySelectorAll('${1:document}');"],
+        "description": "querySelectorAll"
+    },
+    "querySelector-2": {
+        "prefix": "sf-query-Selector-getAttribute",
+        "body": [
+            "this.template.querySelector('${1:document}').getAttribute('${2:attrName}');"
+        ],
+        "description": "getAttribute"
+    },
+    "querySelector-3": {
+        "prefix": "sf-query-Selector-removeAttribute",
+        "body": [
+            "this.template.querySelector('${1:document}').removeAttribute('${2:attrName}');"
+        ],
+        "description": "removeAttribute"
+    },
+    "querySelector-4": {
+        "prefix": "sf-query-Selector-setAttribute",
+        "body": [
+            "this.template.querySelector('${1:document}').setAttribute('${2:attrName}', ${3:value});"
+        ],
+        "description": "setAttribute"
+    },
+
+    "Lifecycle Hooks-1": {
+        "prefix": "sf-met-constructor",
+        "body": ["constructor() {", "\tsuper();", "\t${1://code}", "}"],
+        "description": "constructor"
+    },
+    "Lifecycle Hooks-2": {
+        "prefix": "sf-met-render",
+        "body": ["render(){", "\t${1://code}", "}"],
+        "description": "render"
+    },
+    "Lifecycle Hooks-3": {
+        "prefix": "sf-met-renderedCallback",
+        "body": ["renderedCallback(){", "\t${1://code}", "}"],
+        "description": "renderedCallback"
+    },
+    "Lifecycle Hooks-6": {
+        "prefix": "sf-met-errorCallback",
+        "body": [
+            "errorCallback(error, stack) {",
+            "\t${1:this.error} = error;",
+            "}"
+        ],
+        "description": "errorCallback"
+    },
+    "Lifecycle Hooks-7": {
+        "prefix": "sf-met-connectedCallback",
+        "body": ["connectedCallback() {", "\t${1://code}", "}"],
+        "description": "connectedCallback"
+    },
+    "Lifecycle Hooks-8": {
+        "prefix": "sf-met-disconnectedCallback",
+        "body": ["disconnectedCallback() {", "\t${1://code}", "}"],
+        "description": "disconnectedCallback"
+    },
+
+    "event-1": {
+        "prefix": "sf-evt-preventDefault",
+        "body": ["event.preventDefault();"],
+        "description": "preventDefault"
+    },
+    "event-2": {
+        "prefix": "sf-evt-stopPropagation",
+        "body": ["event.stopPropagation();"],
+        "description": "stopPropagation"
+    },
+    "event-3": {
+        "prefix": "sf-evt-dataSet",
+        "body": ["event.currentTarget.dataset;"],
+        "description": "dataSet"
+    },
+
+    "promise": {
+        "prefix": "sf-promise",
+        "body": "return new Promise((resolve, reject) => {\n\t${1}\n});",
+        "description": "Creates and returns a new Promise in the standard ES6 syntax"
+    },
+    "thenCatch": {
+        "prefix": "sf-promise-then",
+        "body": ".then((${1:result}) => {\n\t${2}\n}).catch((${3:err}) => {\n\t${4}\n});",
+        "description": "Add the .then and .catch methods to handle promises"
+    }
+}

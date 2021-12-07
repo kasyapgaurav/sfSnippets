@@ -1,0 +1,564 @@
+{
+    "LWC forEach": {
+        "prefix": "sf-lwc-forEach",
+        "body": [
+            "<template if:true={${1:contactsList}} for:each={${1:contactsList}} for:item=\"con\" for:index=\"index\">",
+            "   <li key={con.Id}>",
+            "        {con.Name}",
+            "   </li>",
+            "</template>"
+        ],
+        "description": "LWC forEach"
+    },
+
+    "LWC iterator": {
+        "prefix": "sf-lwc-iterator",
+        "body": [
+            "<template if:true={${1:contacts}} iterator:${1:iteratorName}={${2:contacts}}>",
+            "    <li key={iteratorName.value.Id}>",
+            "        <div if:true={iteratorName.first} class=\"list-first\"></div>",
+            "            <!--{iteratorName.value.propertyName}-->",
+            "            {iteratorName.value.Name}",
+            "        <div if:true={iteratorName.last} class=\"list-last\"></div>",
+            "    </li>",
+            "</template>"
+        ],
+        "description": "LWC iterator"
+    },
+
+    "lightning-accordion": {
+        "prefix": "sf-lwc-accordion",
+        "body": [
+            "<lightning-accordion allow-multiple-sections-open active-section-name=\"A\" onsectiontoggle={${1:handleSectionToggle}} >",
+            "\t<lightning-accordion-section name=\"A\" label=\"Accordion Title A\">",
+            "\t\t<p>This is the content area for section A.</p>",
+            "\t</lightning-accordion-section>",
+            "\t<lightning-accordion-section name=\"B\" label=\"Accordion Title B\">",
+            "\t\t<p>This is the content area for section B.</p>",
+            "\t</lightning-accordion-section>",
+            "\t<lightning-accordion-section name=\"C\" label=\"Accordion Title C\">",
+            "\t\t<p>This is the content area for section C.</p>",
+            "\t</lightning-accordion-section>",
+            "</lightning-accordion>"
+        ],
+        "description": "lightning-accordion"
+    },
+    "lightning-accordion-section": {
+        "prefix": "sf-lwc-accordion-section",
+        "body": [
+            "<lightning-accordion active-section-name=\"A\">",
+            "\t<lightning-accordion-section name=\"A\" label=\"Accordion Title A\">",
+            "\t\t<lightning-button-menu slot=\"actions\" alternative-text=\"Show menu\" icon-size=\"x-small\" menu-alignment=\"auto\">",
+            "\t\t\t<lightning-menu-item value=\"New\" label=\"Menu Item One\"></lightning-menu-item>",
+            "\t\t\t<lightning-menu-item value=\"Edit\" label=\"Menu Item Two\"></lightning-menu-item>",
+            "\t\t</lightning-button-menu>",
+            "\t\t<p>This is the content area for section A.</p>",
+            "\t</lightning-accordion-section>",
+            "</lightning-accordion>"
+        ],
+        "description": "lightning-accordion-section"
+    },
+    "lightning-avatar": {
+        "prefix": "sf-lwc-avatar",
+        "body": [
+            "<lightning-avatar src=\"${1:https://www.lightningdesignsystem.com/assets/images/avatar2.jpg}\"></lightning-avatar><!-- Basic -->",
+            "<lightning-avatar size=\"medium\" src=\"${1:https://www.lightningdesignsystem.com/assets/images/avatar2.jpg}\" initials=\"JD\" fallback-icon-name=\"standard:person_account\" ></lightning-avatar><!-- Avatar Sizes -->",
+            "<lightning-avatar variant=\"circle\" src=\"${1:https://www.lightningdesignsystem.com/assets/images/avatar2.jpg}\" initials=\"AW\" fallback-icon-name=\"standard:person_account\"></lightning-avatar><!-- Avatar Variants -->",
+            "<lightning-avatar src=\"${1:/bad/image/url.jpg}\" initials=\"Sa\" fallback-icon-name=\"standard:account\" alternative-text=\"Salesforce\" ></lightning-avatar><!-- Avatar Initials -->",
+            "<lightning-avatar src=\"${1:/bad/image/url.jpg}\" initials=\"\" fallback-icon-name=\"standard:account\" alternative-text=\"Salesforce\"></lightning-avatar><!-- Avatar Icons -->"
+        ],
+        "description": "lightning-avatar"
+    },
+    "lightning-badge": {
+        "prefix": "sf-lwc-badge",
+        "body": ["<lightning-badge label=\"${1:Alpha}\"></lightning-badge>"],
+        "description": "lightning-badge"
+    },
+    "lightning-breadcrumb": {
+        "prefix": "sf-lwc-breadcrumb",
+        "body": [
+            "<lightning-breadcrumbs>",
+            "\t<lightning-breadcrumb",
+            "\t\tlabel=\"Parent Account\"",
+            "\t\thref=\"path/to/place/1\"",
+            "\t\tonclick={${1:handleNavigateToCustomPage1}}>",
+            "\t</lightning-breadcrumb>",
+            "\t<lightning-breadcrumb",
+            "\t\tlabel=\"Case\"",
+            "\t\thref=\"path/to/place/2\"",
+            "\t\tonclick={${1:handleNavigateToCustomPage2}}>",
+            "\t</lightning-breadcrumb>",
+            "</lightning-breadcrumbs>"
+        ],
+        "description": "lightning-breadcrumb"
+    },
+
+    "lightning-button": {
+        "prefix": "sf-lwc-button",
+        "body": [
+            "<lightning-button variant=\"${1|base,neutral,brand,destructive,success,inverse|}\" label=\"${2:labelName}\" title=\"${3:titleName}\" onclick={${4:handleClick}}></lightning-button>"
+        ],
+        "description": "lightning-button"
+    },
+    "lightning-button-group": {
+        "prefix": "sf-lwc-button-group",
+        "body": [
+            "<lightning-button-group>",
+            "\t<lightning-button label=\"${1:Refresh}\"></lightning-button>",
+            "\t<lightning-button label=\"${2:Edit}\"></lightning-button>",
+            "\t<lightning-button label=\"${3:Save}\"></lightning-button>",
+            "</lightning-button-group>"
+        ],
+        "description": "lightning-button-group"
+    },
+
+    "lightning-button-icon": {
+        "prefix": "sf-lwc-button-icon",
+        "body": [
+            "<lightning-button-icon variant=\"${1|base,container,border-filled,border-inverse,bare-inverse|}\" size=\"${2|xx-small,x-small,small,medium,large|}\" icon-name=\"${3:utility:down}\" alternative-text=\"${4:opne}\"></lightning-button-icon>"
+        ],
+        "description": "lightning-button-icon"
+    },
+
+    "lightning-button-icon-stateful": {
+        "prefix": "sf-lwc-button-icon-stateful",
+        "body": [
+            "<lightning-button-icon-stateful icon-name=\"${1:utility:like}\" selected={likeState} onclick={handleLikeButtonClick} alternative-text=\"Like\"></lightning-button-icon-stateful>"
+        ],
+        "description": "lightning-button-icon-stateful"
+    },
+    "lightning-button-menu-1": {
+        "prefix": "sf-lwc-button-menu",
+        "body": [
+            "<lightning-button-menu alternative-text=\"Show menu\">",
+            "\t<lightning-menu-item value=\"MenuItemOne\" label=\"Menu Item One\"></lightning-menu-item>",
+            "\t<lightning-menu-item value=\"MenuItemTwo\" label=\"Menu Item Two\"></lightning-menu-item>",
+            "\t<lightning-menu-item value=\"MenuItemThree\" label=\"Menu Item Three\"></lightning-menu-item>",
+            "</lightning-button-menu>"
+        ],
+        "description": "lightning-button-menu"
+    },
+    "lightning-button-menu-2": {
+        "prefix": "sf-lwc-button-menu-with-icon",
+        "body": [
+            "<lightning-button-menu alternative-text=\"Show menu\" variant=\"border-filled\" icon-name=\"utility:settings\">",
+            "\t<lightning-menu-item value=\"MenuItemOne\" label=\"Menu Item One\"></lightning-menu-item>",
+            "\t<lightning-menu-item value=\"MenuItemTwo\" label=\"Menu Item Two\"></lightning-menu-item>",
+            "\t<lightning-menu-item value=\"MenuItemThree\" label=\"Menu Item Three\"></lightning-menu-item>",
+            "</lightning-button-menu>"
+        ],
+        "description": "lightning-button-menu"
+    },
+    "lightning-button-stateful": {
+        "prefix": "sf-lwc-button-stateful",
+        "body": [
+            "<lightning-button-stateful",
+            "\tlabel-when-off=\"Follow\"",
+            "\tlabel-when-on=\"Following\"",
+            "\tlabel-when-hover=\"Unfollow\"",
+            "\ticon-name-when-off=\"utility:add\"",
+            "\ticon-name-when-on=\"utility:check\"",
+            "\ticon-name-when-hover=\"utility:close\"",
+            "\tselected={isSelected}",
+            "\tonclick={handleClick}>",
+            "</lightning-button-stateful>"
+        ],
+        "description": "lightning-button-stateful"
+    },
+    "lightning-card-2": {
+        "prefix": "sf-lwc-card",
+        "body": [
+            "<lightning-card  variant=\"Narrow\"  title=\"Hello\" icon-name=\"standard:account\">",
+            "\t<lightning-button-icon  icon-name=\"utility:down\" variant=\"border-filled\" alternative-text=\"Show More\" slot=\"actions\"></lightning-button-icon>",
+            "\t<p class=\"slds-p-horizontal_small\">Card Body Narrow (custom component)</p>",
+            "\t<p slot=\"footer\">Card Footer</p>",
+            "</lightning-card>"
+        ],
+        "description": "lightning-card"
+    },
+    "lightning-checkbox-group": {
+        "prefix": "sf-lwc-checkbox-group",
+        "body": [
+            "<lightning-checkbox-group ",
+            "\tname=\"Checkbox Group\"",
+            "\tlabel=\"Checkbox Group\"",
+            "\toptions={${1:options}}",
+            "\tvalue={$2value}",
+            "\tonchange={$3handleChange}>",
+            "</lightning-checkbox-group>"
+        ],
+        "description": "lightning-checkbox-group"
+    },
+    "lightning-radio-group": {
+        "prefix": "sf-lwc-radio-group",
+        "body": [
+            "<lightning-radio-group ",
+            "name=\"radioGroup\"",
+            "label=\"Radio Group\"",
+            "options={${1:options}}",
+            "value={value}",
+            "type=\"radio\">",
+            "</lightning-radio-group>"
+        ],
+        "description": "lightning-radio-group"
+    },
+    "lightning-combobox": {
+        "prefix": "sf-lwc-combobox",
+        "body": [
+            "<lightning-combobox",
+            "\tname=\"progress\"",
+            "\tlabel=\"Status\"",
+            "\tvalue={$3value}",
+            "\tplaceholder=\"Select Progress\"",
+            "\toptions={${1:options}}",
+            "\tonchange={${2:handleChange}} ></lightning-combobox>"
+        ],
+        "description": "lightning-combobox"
+    },
+    "lightning-datatable": {
+        "prefix": "sf-lwc-datatable",
+        "body": [
+            "<lightning-datatable",
+            "\tkey-field=\"id\"",
+            "\tdata={${1:dataList}}",
+            "\tshow-row-number-column",
+            "\trow-number-offset={${2:rowOffset}}",
+            "\thide-checkbox-column",
+            "\tcolumns={${3:columnsList}}",
+            "\tonrowaction={${4:handleRowAction}}>",
+            "</lightning-datatable>"
+        ],
+        "description": "lightning-datatable"
+    },
+    "lightning-file-upload": {
+        "prefix": "sf-lwc-file-upload",
+        "body": [
+            "<lightning-file-upload",
+            "\tlabel=\"Attach receipt\"",
+            "\tname=\"fileUploader\"",
+            "\taccept=\".csv,.doc,.xsl,.pdf\"",
+            "\trecord-id=\"${1:XXXXXXXX98766}\"",
+            "\tonuploadfinished={${2:handleUploadFinished}}",
+            "\tmultiple>",
+            "</lightning-file-upload>"
+        ],
+        "description": "lightning-file-upload"
+    },
+    "lightning-helptext": {
+        "prefix": "sf-lwc-helptext",
+        "body": [
+            "<lightning-helptext content=\"${1:The tooltip displays on the lower left of the icon or above the icon if space is available. It automatically adjusts its position according to the viewport.}\"></lightning-helptext> "
+        ],
+        "description": "lightning-helptext"
+    },
+    "lightning-icon": {
+        "prefix": "sf-lwc-icon",
+        "body": [
+            "<lightning-icon icon-name=\"${1:doctype:image}\" alternative-text=\"Doc image\" ></lightning-icon>",
+            "<!--More icon please visit : https://www.lightningdesignsystem.com/icons/ -->"
+        ],
+        "description": "lightning-icon"
+    },
+
+    "lightning-input": {
+        "prefix": "sf-lwc-input",
+        "body": [
+            "<lightning-input type=\"${1|text,date,datetime,time,color,file,password,tel,url,number,checkbox,checkbox-button,toggle,search|}\" variant=\"${2|standard,label-inline,label-hidden,label-stacked|}\" name=\"${3:name}\" label=\"${4:label}\" placeholder=\"${5:type here...}\"></lightning-input>"
+        ],
+        "description": "lightning-input"
+    },
+
+    "lightning-input-address": {
+        "prefix": "sf-lwc-input-address",
+        "body": [
+            "<lightning-input-address",
+            "\taddress-label=\"${1:Address}\"",
+            "\tstreet-label=\"${2:Street}\"",
+            "\tcity-label=\"${3:City}\"",
+            "\tcountry-label=\"${4:Country}\"",
+            "\tprovince-label=\"${5:Province}\"",
+            "\tpostal-code-label=\"${6:PostalCode}\"",
+            "\tstreet=\"${7:121 Spear St.}\"",
+            "\tcity=\"${8:San Francisco}\"",
+            "\tcountry=\"${9:US}\"",
+            "\tprovince=\"${10:CA}\"",
+            "\tpostal-code=\"${11:94105}\"",
+            "\trequired",
+            "\tfield-level-help=\"${12:Help Text for inputAddress field}\" ></lightning-input-address>"
+        ],
+        "description": "lightning-input-address"
+    },
+    "lightning-input-location": {
+        "prefix": "sf-lwc-input-location",
+        "body": [
+            "<lightning-input-location label=\"${1:No default coordinates}\" latitude=\"-15.1234\" longitude=\"99.5517\"></lightning-input-location>"
+        ],
+        "description": "lightning-input-location"
+    },
+    "lightning-input-name": {
+        "prefix": "sf-lwc-input-name",
+        "body": [
+            "<lightning-input-name",
+            "\tlabel=\"${1:Default Input Name Field}\"",
+            "\tfirst-name=\"$2John\"",
+            "\tmiddle-name=\"$3Middleton\"",
+            "\tlast-name=\"$4Doe\"",
+            "\tinformal-name=\"$5Jo\"",
+            "\tsuffix=\"$6The 3rd\"",
+            "\tsalutation=\"$7Mr.\"",
+            "\toptions={salutationOptions} ></lightning-input-name>"
+        ],
+        "description": "lightning-input-name"
+    },
+    "lightning-input-rich-text": {
+        "prefix": "sf-lwc-rich-text-area",
+        "body": [
+            "<lightning-input-rich-text ",
+            "placeholder=\"${1:Type something interesting}\"",
+            "value={$2myVal}",
+            "formats={$3formats}>",
+            "</lightning-input-rich-text>"
+        ],
+        "description": "lightning-input-rich-text"
+    },
+    "lightning-textarea": {
+        "prefix": "sf-lwc-textarea",
+        "body": [
+            "<lightning-textarea name=\"${1:inputname}\" label=\"Enter some text\" placeholder=\"type here...\" value=\"\"></lightning-textarea>"
+        ],
+        "description": "lightning-textarea"
+    },
+    "lightning-layout": {
+        "prefix": "sf-lwc-layout",
+        "body": [
+            "<lightning-layout multiple-rows>",
+            "\t<lightning-layout-item size=\"12\" padding=\"${1|around-small,around-medium,around-large,horizontal-small,horizontal-medium,horizontal-large|}\" small-device-size=\"3\" medium-device-size=\"6\" large-device-size=\"3\" >",
+            "\t\t<div class=\"custom-box\">1</div>",
+            "\t</lightning-layout-item>",
+            "\t<lightning-layout-item size=\"12\" padding=\"around-small\" small-device-size=\"3\" medium-device-size=\"6\" large-device-size=\"3\">",
+            "\t\t<div class=\"custom-box\">2</div>",
+            "\t</lightning-layout-item>",
+            "\t<lightning-layout-item size=\"12\" padding=\"around-small\" small-device-size=\"3\" medium-device-size=\"6\" large-device-size=\"3\">",
+            "\t\t<div class=\"custom-box\">3</div>",
+            "\t</lightning-layout-item>",
+            "\t<lightning-layout-item size=\"12\" padding=\"around-small\" small-device-size=\"3\" medium-device-size=\"6\" large-device-size=\"3\">",
+            "\t\t<div class=\"custom-box\">4</div>",
+            "\t</lightning-layout-item>",
+            "</lightning-layout>"
+        ],
+        "description": "lightning-layout"
+    },
+    "lightning-pill": {
+        "prefix": "sf-lwc-pill",
+        "body": [
+            "<lightning-pill label=\"${1:With only remove handler}\" onremove={$2handleRemove}></lightning-pill>"
+        ],
+        "description": "lightning-pill"
+    },
+    "lightning-record-edit-form": {
+        "prefix": "sf-lwc-record-edit-form",
+        "body": [
+            "<lightning-record-edit-form id=\"recordViewForm\"",
+            "\t\t\trecord-id=\"${1:003R00000000000000}\"",
+            "\t\t\trecord-type-id=\"012R00000000000000\"",
+            "\t\t\tobject-api-name=\"Contact\">",
+            "\t<lightning-messages></lightning-messages>",
+            "\t<lightning-input-field field-name=\"FirstName\"></lightning-input-field>",
+            "\t<lightning-input-field field-name=\"LastName\"></lightning-input-field>",
+            "\t<lightning-input-field field-name=\"Birthdate\"></lightning-input-field>",
+            "\t<lightning-input-field field-name=\"Phone\"></lightning-input-field>",
+            "\t<!--Picklist-->",
+            "\t<lightning-input-field field-name=\"Level__c\"></lightning-input-field>",
+            "\t<!-- submit -->",
+            "\t<lightning-button type=\"submit\" label=\"Update record\"></lightning-button>",
+            "</lightning-record-edit-form>"
+        ],
+        "description": "lightning-record-edit-form"
+    },
+    " lightning-record-view-form": {
+        "prefix": "sf-lwc-record-view-form",
+        "body": [
+            "<lightning-record-view-form",
+            "\t\t\trecord-id=\"${1:001XXXXXXXXXXXXXXX}\"",
+            "\t\t\tobject-api-name=\"$2Contact\">",
+            "\t<div class=\"slds-box slds-theme_default\">",
+            "\t\t<lightning-output-field field-name=\"Name\"></lightning-output-field>",
+            "\t\t<lightning-output-field field-name=\"Phone\"></lightning-output-field>",
+            "\t\t<lightning-output-field field-name=\"Email\"></lightning-output-field>",
+            "\t\t<lightning-output-field field-name=\"Birthdate\"></lightning-output-field>",
+            "\t\t<lightning-output-field field-name=\"LeadSource\"></lightning-output-field>",
+            "\t</div>",
+            "</lightning-record-view-form>"
+        ],
+        "description": " lightning-record-view-form"
+    },
+    "lightning-progress-indicator": {
+        "prefix": "sf-lwc-progress-indicator",
+        "body": [
+            "<lightning-progress-indicator current-step=\"3\" type=\"${1|base,path|}\" has-error=\"true\" variant=\"base\">",
+            "\t<lightning-progress-step label=\"Step 1\" value=\"1\"></lightning-progress-step>",
+            "\t<lightning-progress-step label=\"Step 2\" value=\"2\"></lightning-progress-step>",
+            "\t<lightning-progress-step label=\"Step 3\" value=\"3\"></lightning-progress-step>",
+            "\t<lightning-progress-step label=\"Step 4\" value=\"4\"></lightning-progress-step>",
+            "</lightning-progress-indicator>"
+        ],
+        "description": "lightning-progress-indicator"
+    },
+
+    "lightning-slider": {
+        "prefix": "sf-lwc-slider",
+        "body": [
+            "<lightning-slider label=\"Volume\" value=\"40\"></lightning-slider>",
+            "<!-- <lightning-slider label=\"Volume\" value=\"40\" type=\"vertical\" size=\"small\" variant=\"label-hidden\"></lightning-slider> -->"
+        ],
+        "description": "lightning-slider"
+    },
+    "lightning-spinner": {
+        "prefix": "sf-lwc-spinner",
+        "body": [
+            "<lightning-spinner alternative-text=\"Loading\" size=\"large\"></lightning-spinner>"
+        ],
+        "description": "lightning-spinner"
+    },
+
+    "lightning-tabset": {
+        "prefix": "sf-lwc-tabset",
+        "body": [
+            "<lightning-tabset variant=\"${1|standard,scoped,vertical|}\" active-tab-value=\"${2:two}\">",
+            "\t<lightning-tab label=\"Item One\" value=\"one\">",
+            "\t\tOne Content !",
+            "\t</lightning-tab>",
+            "\t<lightning-tab label=\"Item Two\" value=\"two\">",
+            "\t\tTwo Content !",
+            "\t</lightning-tab>",
+            "\t<lightning-tab label=\"Item Three\" value=\"three\">",
+            "\t\tThree Content !",
+            "\t</lightning-tab>",
+            "</lightning-tabset>"
+        ],
+        "description": "lightning-tabset"
+    },
+
+    "lightning-vertical-navigation": {
+        "prefix": "sf-lwc-vertical-navigation",
+        "body": [
+            "<lightning-vertical-navigation>",
+            "\t<lightning-vertical-navigation-section label=\"Reports\">",
+            "\t\t<lightning-vertical-navigation-item label=\"Recent\" name=\"recent\"></lightning-vertical-navigation-item>",
+            "\t\t<lightning-vertical-navigation-item label=\"Created by Me\" name=\"created\"></lightning-vertical-navigation-item>",
+            "\t\t<lightning-vertical-navigation-item label=\"Private Reports\" name=\"private\"></lightning-vertical-navigation-item>",
+            "\t\t<lightning-vertical-navigation-item label=\"Public Reports\" name=\"public\"></lightning-vertical-navigation-item>",
+            "\t\t<lightning-vertical-navigation-item label=\"All Reports\" name=\"all\"></lightning-vertical-navigation-item>",
+            "\t</lightning-vertical-navigation-section>",
+            "</lightning-vertical-navigation>"
+        ],
+        "description": "lightning-vertical-navigation"
+    },
+    "lightning-dual-listbox": {
+        "prefix": "sf-lwc-dual-listbox",
+        "body": [
+            "<lightning-dual-listbox ",
+            "\tname=\"${1:languages}\"",
+            "\tlabel=\"Select Languages\"",
+            "\tsource-label=\"Available\"",
+            "\tselected-label=\"Selected\"",
+            "\tfield-level-help=\"This is a dual listbox\"",
+            "\toptions={options}",
+            "\tonchange={handleChange}>",
+            "</lightning-dual-listbox>"
+        ],
+        "description": "lightning-dual-listbox"
+    },
+
+    "lightning-quick-action": {
+        "prefix": "sf-lwc-quick-action",
+        "body": [
+            "<lightning-quick-action-panel header=\"My action\">",
+            "Here's some content for the modal body.",
+            "\t<div slot=\"footer\">",
+            "\t\t<lightning-button variant=\"neutral\" label=\"Cancel\"></lightning-button>",
+            "\t\t<lightning-button variant=\"brand\" label=\"Save\" class=\"slds-m-left_x-small\"></lightning-button>",
+            "\t</div>",
+            "</lightning-quick-action-panel>"
+        ],
+        "description": "lightning-quick-action"
+    },
+
+    "SLDS Modal": {
+        "prefix": "sf-slds-modal",
+        "body": [
+            "<div class=\"custom-modal\">",
+            "\t<section role=\"dialog\" class=\"slds-modal slds-fade-in-open\">",
+            "\t\t<div class=\"slds-modal__container\">",
+            "\t\t\t<header class=\"slds-modal__header\">",
+            "\t\t\t\t<span class=\"slds-modal__close\">",
+            "\t\t\t\t\t<lightning-icon icon-name=\"utility:close\" variant=\"inverse\" alternative-text=\"close\"></lightning-icon>",
+            "\t\t\t\t</span>",
+            "\t\t\t\t<h2 class=\"slds-text-heading_medium slds-hyphenate\">${1:Modal Header}</h2>",
+            "\t\t\t</header>",
+            "\t\t\t<div class=\"slds-modal__content slds-p-around_medium\">",
+            "\t\t\t\t$2<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>",
+            "\t\t\t</div>",
+            "\t\t\t<footer class=\"slds-modal__footer\">",
+            "\t\t\t\t<lightning-button label=\"Cancel\" title=\"Cancel\" class=\"slds-m-right_small\"></lightning-button>",
+            "\t\t\t\t<lightning-button variant=\"brand\" label=\"Save\" title=\"Save\"></lightning-button>",
+            "\t\t\t</footer>",
+            "\t\t</div>",
+            "\t</section>",
+            "\t<div class=\"slds-backdrop slds-backdrop_open\"></div>",
+            "</div>"
+        ],
+        "description": "SLDS Modal"
+    },
+
+    "SLDS Select": {
+        "prefix": "sf-slds-select",
+        "body": [
+            "<div class=\"slds-form-element\">",
+            "\t<label class=\"slds-form-element__label\">${1:Select Label}</label>",
+            "\t<div class=\"slds-form-element__control\">",
+            "\t\t<div class=\"slds-select_container\">",
+            "\t\t\t<select class=\"slds-select\">",
+            "\t\t\t\t<option value=\"\">Please select</option>",
+            "\t\t\t\t<option>Option One</option>",
+            "\t\t\t\t<option>Option Two</option>",
+            "\t\t\t\t<option>Option Three</option>$2",
+            "\t\t\t</select>",
+            "\t\t</div>",
+            "\t</div>",
+            "</div>"
+        ],
+        "description": "SLDS Select"
+    },
+
+    "SLDS Table": {
+        "prefix": "sf-slds-table",
+        "body": [
+            "<table class=\"slds-table slds-table_cell-buffer slds-table_bordered\">",
+            "\t<thead>",
+            "\t\t<tr class=\"slds-line-height_reset\">",
+            "\t\t\t<th scope=\"col\"> ${1:Opportunity Name} </th>",
+            "\t\t\t<th scope=\"col\"> Account Name </th>",
+            "\t\t\t<th scope=\"col\"> Close Date </th>",
+            "\t\t\t<th scope=\"col\"> Stage </th>",
+            "\t\t\t<th scope=\"col\"> Confidence </th>",
+            "\t\t\t<th scope=\"col\"> Amount </th>",
+            "\t\t\t<th scope=\"col\"> Contact </th>",
+            "\t\t</tr>",
+            "\t</thead>",
+            "\t<tbody>",
+            "\t\t<tr class=\"slds-hint-parent\">",
+            "\t\t\t<th scope=\"row\"> Cloudhub </th>",
+            "\t\t\t<th scope=\"row\"> Cloudhub </th>",
+            "\t\t\t<th scope=\"row\"> 4/14/2015 </th>",
+            "\t\t\t<th scope=\"row\"> Prospecting </th>",
+            "\t\t\t<th scope=\"row\"> 20% </th>",
+            "\t\t\t<th scope=\"row\"> $25k </th>",
+            "\t\t\t<th scope=\"row\"> test@cloudhub.com </th>",
+            "\t\t</tr>",
+            "\t</tbody>",
+            "</table>"
+        ],
+        "description": "SLDS Table"
+    }
+}
